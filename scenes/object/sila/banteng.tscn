@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwi78ea5qn2l2"]
+
+[ext_resource type="Texture2D" uid="uid://chuigaephnwdt" path="res://assets/object/sila/Banteng.png" id="1_61u5q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1l4l1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_61u5q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_efc8f"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r2gae"]
+_data = {
+"new_animation": SubResource("Animation_efc8f")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -4.91736)
+sprite_frames = SubResource("SpriteFrames_1l4l1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_r2gae")
+}
+autoplay = "new_animation"
