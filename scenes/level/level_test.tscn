@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://coo18lck1h1hk"]
+[gd_scene load_steps=8 format=3 uid="uid://coo18lck1h1hk"]
 
-[ext_resource type="Texture2D" uid="uid://ddgv8inhil50t" path="res://assets/background/BG Image.png" id="1_pqpvt"]
-[ext_resource type="PackedScene" uid="uid://hg37n41fljq0" path="res://scenes/back_palm_tree_left.tscn" id="2_7gs8m"]
-[ext_resource type="Texture2D" uid="uid://uhk4x5lhsnga" path="res://assets/terrain/terrain1.png" id="2_oxor3"]
-[ext_resource type="PackedScene" uid="uid://bdqlwhtv6q14t" path="res://scenes/front_palm_tree.tscn" id="3_t7jhn"]
+[ext_resource type="Texture2D" uid="uid://ddgv8inhil50t" path="res://assets/background/BG Image.png" id="1_yv5sl"]
+[ext_resource type="PackedScene" uid="uid://hg37n41fljq0" path="res://scenes/object/tree/back_palm_tree_left.tscn" id="2_gqjr5"]
+[ext_resource type="Texture2D" uid="uid://uhk4x5lhsnga" path="res://assets/terrain/terrain1.png" id="3_rwhby"]
+[ext_resource type="PackedScene" uid="uid://bdqlwhtv6q14t" path="res://scenes/object/tree/front_palm_tree.tscn" id="4_hk2ok"]
+[ext_resource type="PackedScene" uid="uid://b6uex5fw7naax" path="res://scenes/object/timer/timer.tscn" id="5_3gx4j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ax6o"]
-texture = ExtResource("2_oxor3")
+texture = ExtResource("3_rwhby")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -199,7 +200,7 @@ texture = ExtResource("2_oxor3")
 [sub_resource type="TileSet" id="TileSet_slcut"]
 sources/0 = SubResource("TileSetAtlasSource_0ax6o")
 
-[node name="Node" type="Node"]
+[node name="LevelTest" type="Node"]
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -215,9 +216,9 @@ offset_bottom = 672.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-texture = ExtResource("1_pqpvt")
+texture = ExtResource("1_yv5sl")
 
-[node name="CharacterBody2D" parent="Node2D/Level_1" instance=ExtResource("2_7gs8m")]
+[node name="CharacterBody2D" parent="Node2D/Level_1" instance=ExtResource("2_gqjr5")]
 position = Vector2(897, 328)
 
 [node name="TileMap" type="TileMap" parent="Node2D/Level_1"]
@@ -227,5 +228,8 @@ tile_set = SubResource("TileSet_slcut")
 format = 2
 layer_0/tile_data = PackedInt32Array(786434, 65536, 0, 786435, 131072, 0, 786436, 196608, 0, 786437, 262144, 0, 786438, 65536, 0, 786439, 131072, 0, 786440, 196608, 0, 786441, 262144, 0, 786442, 65536, 0, 786443, 131072, 0, 786444, 196608, 0, 786445, 262144, 0, 786446, 65536, 0, 786447, 131072, 0, 786448, 196608, 0, 786449, 262144, 0, 786450, 65536, 0, 786451, 131072, 0, 786452, 196608, 0, 786453, 262144, 0, 851969, 65536, 9, 851970, 131072, 9, 851971, 196608, 9, 851972, 262144, 9, 851973, 65536, 9, 851974, 131072, 9, 851975, 196608, 9, 851976, 262144, 9, 851977, 65536, 9, 851978, 131072, 9, 851979, 196608, 9, 851980, 262144, 9, 851981, 65536, 9, 851982, 131072, 9, 851983, 196608, 9, 851984, 262144, 9, 851985, 65536, 9, 851986, 131072, 9, 851987, 196608, 9, 851988, 262144, 9, 851989, 131072, 9, 851990, 131072, 9, 851968, 851968, 536870919, 851991, 917504, 536870919, 589824, 0, 268435457, 655360, 0, 268435458, 720896, 0, 268435459, 786432, 0, 268435460, 458752, 0, 268435459, 524288, 0, 268435460, 589847, 327680, 268435457, 655383, 327680, 268435458, 720919, 327680, 268435459, 786455, 327680, 268435460, 327703, 327680, 268435457, 393239, 327680, 268435458, 458775, 327680, 268435459, 524311, 327680, 268435460, 65559, 327680, 268435457, 131095, 327680, 268435458, 196631, 327680, 268435459, 262167, 327680, 268435460, 262147, 0, 1879048194, 262146, 0, 1879048195, 196612, 0, 268435460, 131076, 0, 268435459, 65540, 0, 268435458, 262144, 2031616, 3, 262148, 0, 1610612741, 4, 851968, 7, 23, 917504, 7, 5, 131072, 5, 6, 131072, 5, 7, 262144, 268435461, 8, 196608, 268435461, 9, 131072, 268435461, 10, 65536, 268435461, 11, 262144, 268435461, 12, 196608, 268435461, 13, 131072, 268435461, 14, 65536, 268435461, 15, 262144, 268435461, 16, 196608, 268435461, 17, 131072, 268435461, 18, 65536, 268435461, 19, 262144, 268435461, 20, 196608, 268435461, 21, 131072, 268435461, 22, 65536, 268435461, 196611, 65536, 805306369, 196609, 65536, 805306369, 131075, 65536, 1342177281, 786433, 0, 0, 786454, 327680, 0, 327680, 0, 268435457, 393216, 0, 268435458, 262145, 0, 1879048196, 0, 786432, 6, 65536, 786432, 7, 131072, 786432, 8, 196608, 65536, 1342177282, 1, 65536, 2, 2, 131072, 2, 3, 131072, 2, 65539, 131072, 2, 65538, 131072, 2, 65537, 131072, 2, 131074, 131072, 2, 196610, 131072, 2, 131073, 65536, 2, 589836, 0, 0, 655372, 0, 1, 720908, 0, 2, 589837, 327680, 0, 655373, 327680, 1, 720909, 327680, 2, 655369, 589824, 0, 720905, 589824, 1, 655368, 524288, 0, 720904, 524288, 1, 524304, 524288, 5, 524305, 589824, 5, 458768, 524288, 0, 458769, 589824, 0, 655379, 524288, 0, 655380, 589824, 0, 720915, 524288, 5, 720916, 589824, 5)
 
-[node name="Front Palm Tree" parent="Node2D/Level_1" instance=ExtResource("3_t7jhn")]
+[node name="Front Palm Tree" parent="Node2D/Level_1" instance=ExtResource("4_hk2ok")]
 position = Vector2(680, 534)
+
+[node name="Timer" parent="." instance=ExtResource("5_3gx4j")]
+position = Vector2(23, 3)
