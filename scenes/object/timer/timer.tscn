@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6uex5fw7naax"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_8g7le"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_8g7le"]
 [ext_resource type="FontFile" uid="uid://n2tg5p2yncvu" path="res://assets/font/Baloo-Regular.ttf" id="2_vd2nd"]
 
 [node name="Timer" type="Node2D"]
@@ -19,6 +19,5 @@ theme_override_constants/shadow_offset_x = -1
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("2_vd2nd")
 theme_override_font_sizes/font_size = 36
-text = "00:00:00"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

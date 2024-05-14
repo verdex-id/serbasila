@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxcny81hkm0md"]
+
+[ext_resource type="Theme" uid="uid://cqmyh4wu4p7m6" path="res://theme/font.tres" id="1_ead13"]
+[ext_resource type="Theme" uid="uid://1uffbjk3loe1" path="res://theme/button_normal.tres" id="1_ogk33"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_v554k"]
+[ext_resource type="Texture2D" uid="uid://ddgv8inhil50t" path="res://assets/background/BG Image.png" id="3_pweod"]
+[ext_resource type="Theme" uid="uid://dkpb16webwh8w" path="res://theme/button_danger.tres" id="4_337f6"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ead13")
+script = ExtResource("2_v554k")
+
+[node name="BgImage" type="Sprite2D" parent="."]
+position = Vector2(572.5, 321.5)
+scale = Vector2(3.08073, 5.28906)
+texture = ExtResource("3_pweod")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 0
+offset_left = 332.0
+offset_top = 397.0
+offset_right = 832.0
+offset_bottom = 479.0
+columns = 3
+
+[node name="Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+flat = true
+
+[node name="Play" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ogk33")
+text = "Main"
+
+[node name="Button2" type="Button" parent="GridContainer"]
+layout_mode = 2
+flat = true
+
+[node name="Ranks" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ogk33")
+text = "Peringkat"
+
+[node name="Tutorial" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ogk33")
+text = "Tutorial"
+
+[node name="Exit" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("4_337f6")
+text = "Exit"
+
+[connection signal="pressed" from="GridContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="GridContainer/Exit" to="." method="_on_exit_pressed"]
