@@ -1,0 +1,77 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvxu4u41ae7l0"]
+
+[ext_resource type="Texture2D" uid="uid://b6i3h5w5d5lyb" path="res://assets/character/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_1512k"]
+[ext_resource type="Texture2D" uid="uid://bo5ogq8uflpey" path="res://assets/character/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="2_g1ulb"]
+[ext_resource type="Texture2D" uid="uid://cvwb3u2184pa7" path="res://assets/character/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="3_ux357"]
+[ext_resource type="Texture2D" uid="uid://6bxkl81tkug2" path="res://assets/character/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="4_2b6p4"]
+[ext_resource type="Texture2D" uid="uid://ds7gbm827npxl" path="res://assets/character/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="5_0b2el"]
+[ext_resource type="Texture2D" uid="uid://xabv2t8r1gc7" path="res://assets/character/Captain Clown Nose without Sword/02-Run/Run 01.png" id="6_g1lcs"]
+[ext_resource type="Texture2D" uid="uid://cnnvpcjw378ys" path="res://assets/character/Captain Clown Nose without Sword/02-Run/Run 02.png" id="7_sakco"]
+[ext_resource type="Texture2D" uid="uid://ci1x70anqve86" path="res://assets/character/Captain Clown Nose without Sword/02-Run/Run 03.png" id="8_rv5nx"]
+[ext_resource type="Texture2D" uid="uid://bj0k2st5j4c06" path="res://assets/character/Captain Clown Nose without Sword/02-Run/Run 04.png" id="9_hxd7m"]
+[ext_resource type="Texture2D" uid="uid://cyaecknheaqli" path="res://assets/character/Captain Clown Nose without Sword/02-Run/Run 05.png" id="10_cuk40"]
+[ext_resource type="Texture2D" uid="uid://4tub6yvq77dk" path="res://assets/character/Captain Clown Nose without Sword/02-Run/Run 06.png" id="11_p7mvn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3t4cd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1512k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g1ulb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ux357")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2b6p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0b2el")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_g1lcs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sakco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rv5nx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hxd7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cuk40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_p7mvn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_642na"]
+size = Vector2(48, 51)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(16, -6.5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_3t4cd")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9.99998)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_642na")
