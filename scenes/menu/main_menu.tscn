@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxcny81hkm0md"]
+[gd_scene load_steps=8 format=3 uid="uid://cxcny81hkm0md"]
 
 [ext_resource type="Theme" uid="uid://cqmyh4wu4p7m6" path="res://theme/font.tres" id="1_ead13"]
 [ext_resource type="Theme" uid="uid://1uffbjk3loe1" path="res://theme/button_normal.tres" id="1_ogk33"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_v554k"]
 [ext_resource type="Texture2D" uid="uid://ddgv8inhil50t" path="res://assets/background/BG Image.png" id="3_pweod"]
 [ext_resource type="Theme" uid="uid://dkpb16webwh8w" path="res://theme/button_danger.tres" id="4_337f6"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="6_iwage"]
+[ext_resource type="PackedScene" uid="uid://dk0fqpagu3ath" path="res://scenes/object/other/music.tscn" id="7_4b1lu"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -16,9 +18,10 @@ grow_vertical = 2
 theme = ExtResource("1_ead13")
 script = ExtResource("2_v554k")
 
-[node name="BgImage" type="Sprite2D" parent="."]
-position = Vector2(572.5, 321.5)
-scale = Vector2(3.08073, 5.28906)
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
 texture = ExtResource("3_pweod")
 
 [node name="GridContainer" type="GridContainer" parent="."]
@@ -62,6 +65,13 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("4_337f6")
 text = "Exit"
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_iwage")
+
+[node name="Music" parent="." instance=ExtResource("7_4b1lu")]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="GridContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="GridContainer/Exit" to="." method="_on_exit_pressed"]

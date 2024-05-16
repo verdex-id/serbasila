@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xffqcbs58k2q"
+path="res://.godot/imported/JKT48 - Kebun Binatang Saat Hujan Instrument.mp3-009140e7c3c3a0634cb4c3df94f5c50c.mp3str"
+
+[deps]
+
+source_file="res://assets/music/JKT48 - Kebun Binatang Saat Hujan Instrument.mp3"
+dest_files=["res://.godot/imported/JKT48 - Kebun Binatang Saat Hujan Instrument.mp3-009140e7c3c3a0634cb4c3df94f5c50c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

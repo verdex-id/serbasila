@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwi78ea5qn2l2"]
+
+[ext_resource type="Texture2D" uid="uid://chuigaephnwdt" path="res://assets/object/sila/Banteng.png" id="1_61u5q"]
+[ext_resource type="Script" path="res://scripts/sila.gd" id="1_ank63"]
+[ext_resource type="Texture2D" uid="uid://ckakl3sowi0q3" path="res://assets/object/sila/Pohon Beringin.png" id="3_1dfy7"]
+[ext_resource type="Texture2D" uid="uid://5bn48mm432ms" path="res://assets/object/sila/Bintang.png" id="4_xdy1j"]
+[ext_resource type="Texture2D" uid="uid://iu17ovlbbyc1" path="res://assets/object/sila/Padi dan Kapas.png" id="5_gip66"]
+[ext_resource type="Texture2D" uid="uid://dihjha64gp7wk" path="res://assets/object/sila/Rantai Emas.png" id="6_73qnd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1l4l1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_61u5q")
+}],
+"loop": true,
+"name": &"banteng",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1dfy7")
+}],
+"loop": true,
+"name": &"beringin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xdy1j")
+}],
+"loop": true,
+"name": &"bintang",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gip66")
+}],
+"loop": true,
+"name": &"padikapas",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_73qnd")
+}],
+"loop": true,
+"name": &"rantai",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_efc8f"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r2gae"]
+_data = {
+"new_animation": SubResource("Animation_efc8f")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ytvbd"]
+radius = 17.0
+height = 50.0
+
+[node name="Sila" type="Area2D"]
+script = ExtResource("1_ank63")
+
+[node name="SilaObject" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_1l4l1")
+animation = &"rantai"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SilaObject"]
+libraries = {
+"": SubResource("AnimationLibrary_r2gae")
+}
+autoplay = "new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ytvbd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

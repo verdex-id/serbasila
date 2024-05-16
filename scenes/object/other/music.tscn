@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk0fqpagu3ath"]
+
+[ext_resource type="AudioStream" uid="uid://xffqcbs58k2q" path="res://assets/music/JKT48 - Kebun Binatang Saat Hujan Instrument.mp3" id="1_t6d03"]
+[ext_resource type="Script" path="res://scripts/music.gd" id="1_u8ov8"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_u8ov8")
+
+[node name="KebunBinatang" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_t6d03")
