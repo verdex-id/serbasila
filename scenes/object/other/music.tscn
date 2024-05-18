@@ -1,10 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk0fqpagu3ath"]
+[gd_scene load_steps=5 format=3 uid="uid://dk0fqpagu3ath"]
 
-[ext_resource type="AudioStream" uid="uid://xffqcbs58k2q" path="res://assets/music/JKT48 - Kebun Binatang Saat Hujan Instrument.mp3" id="1_t6d03"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="1_u8ov8"]
+[ext_resource type="AudioStream" uid="uid://ck5o2ypecrue2" path="res://assets/music/JKT48 Kebun Binatang Saat Hujan New Era Version INSTRUMENTAL KARAOKE.mp3" id="2_lqhnl"]
+[ext_resource type="AudioStream" uid="uid://kcexrpuhqw0b" path="res://assets/music/Orchestral Cover JKT48 Kembang Api Milikku 僕の打ち上げ花火.mp3" id="3_fyiss"]
+[ext_resource type="AudioStream" uid="uid://bynmxwqmlnyq6" path="res://assets/music/Orchestral Cover JKT48 Ponytail dan ShuShu.mp3" id="4_kvf0r"]
 
 [node name="Music" type="Node"]
 script = ExtResource("1_u8ov8")
 
 [node name="KebunBinatang" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_t6d03")
+stream = ExtResource("2_lqhnl")
+volume_db = -8.0
+max_distance = 10000.0
+
+[node name="KembangApi" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fyiss")
+volume_db = -8.0
+max_distance = 10000.0
+
+[node name="Ponytail" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kvf0r")
+volume_db = -8.0
+max_distance = 10000.0

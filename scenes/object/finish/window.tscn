@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://dfve844ognewj"]
+[gd_scene load_steps=78 format=3 uid="uid://dfve844ognewj"]
 
 [ext_resource type="Texture2D" uid="uid://b3ixt44bobxna" path="res://assets/object/finish/Window/01.png" id="1_564r2"]
 [ext_resource type="Texture2D" uid="uid://c8q6awp67j2p6" path="res://assets/object/finish/Window/02.png" id="2_41mqh"]
@@ -74,6 +74,7 @@
 [ext_resource type="Texture2D" uid="uid://dj6dwdxls4dlx" path="res://assets/object/finish/Window/72.png" id="72_a5rwf"]
 [ext_resource type="Texture2D" uid="uid://ci3gicqc5v1cg" path="res://assets/object/finish/Window/73.png" id="73_5o41t"]
 [ext_resource type="Texture2D" uid="uid://dwugggogimagt" path="res://assets/object/finish/Window/74.png" id="74_w5kdu"]
+[ext_resource type="Theme" uid="uid://cqmyh4wu4p7m6" path="res://theme/font.tres" id="75_dnx1i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_op7mb"]
 animations = [{
@@ -332,5 +333,6 @@ offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
+theme = ExtResource("75_dnx1i")
 horizontal_alignment = 1
 autowrap_mode = 2

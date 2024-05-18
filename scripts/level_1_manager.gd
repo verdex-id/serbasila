@@ -39,8 +39,8 @@ func get_sila():
 func collect_sila(sila_icon_name):
 	print(sila_list)
 	
-func _on_level_test_ready():
-	Music.kebun_binatang(45)
+func _on_level_one_ready():
+	Music.kembang_api(45)
 	var finish_points = get_tree().get_nodes_in_group("finish")
 	finish_points.shuffle()
 	

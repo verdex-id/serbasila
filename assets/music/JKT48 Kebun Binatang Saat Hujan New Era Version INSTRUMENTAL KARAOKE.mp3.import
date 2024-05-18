@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ck5o2ypecrue2"
+path="res://.godot/imported/JKT48 Kebun Binatang Saat Hujan New Era Version INSTRUMENTAL KARAOKE.mp3-423c038a69d311d7344d00553251c73c.mp3str"
+
+[deps]
+
+source_file="res://assets/music/JKT48 Kebun Binatang Saat Hujan New Era Version INSTRUMENTAL KARAOKE.mp3"
+dest_files=["res://.godot/imported/JKT48 Kebun Binatang Saat Hujan New Era Version INSTRUMENTAL KARAOKE.mp3-423c038a69d311d7344d00553251c73c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
