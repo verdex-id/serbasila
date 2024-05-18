@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Music="*res://scenes/object/other/music.tscn"
+LevelManager="*res://scenes/level/level_manager.tscn"
+GlobalTimer="*res://scenes/object/timer/timer.tscn"
 
 [display]
 

@@ -2,8 +2,8 @@ extends Node
 
 @onready var timer = $"../Player/Timer"
 
-func _on_level_one_ready():
-	Music.kembang_api(45)
+func _on_level_test_ready():
+	Music.ponytail(45)
 	
 	timer.timer_start()
 	
@@ -13,8 +13,6 @@ func _on_level_one_ready():
 	var finish_correct = finish_points[0]
 	finish_points = finish_points.slice(1)
 	finish_correct.set_sila(LevelManager.get_sila(), true)
-	
-	finish_points = finish_points.filter(func(point): return point != finish_correct)
 	
 	for point in finish_points:
 		point.set_sila(LevelManager.sila_list.pick_random(), false)

@@ -8,3 +8,8 @@ func kembang_api(start = 0):
 	
 func ponytail(start = 0):
 	$Ponytail.play(start)
+
+func stop():
+	$KebunBinatang.stop()
+	$KembangApi.stop()
+	$Ponytail.stop()

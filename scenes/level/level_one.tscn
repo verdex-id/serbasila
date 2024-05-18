@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dvxu4u41ae7l0" path="res://scenes/character/player.tscn" id="2_a205k"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_5gws6"]
 [ext_resource type="Theme" uid="uid://cqmyh4wu4p7m6" path="res://theme/font.tres" id="3_lvw30"]
-[ext_resource type="PackedScene" uid="uid://b6uex5fw7naax" path="res://scenes/object/timer/timer.tscn" id="4_uh55o"]
 [ext_resource type="PackedScene" uid="uid://bwi78ea5qn2l2" path="res://scenes/object/sila/sila.tscn" id="5_qpuso"]
 [ext_resource type="Script" path="res://scripts/level_1_manager.gd" id="6_fbav8"]
 [ext_resource type="PackedScene" uid="uid://dfve844ognewj" path="res://scenes/object/finish/window.tscn" id="8_ot51x"]
+[ext_resource type="PackedScene" uid="uid://b6uex5fw7naax" path="res://scenes/object/timer/timer.tscn" id="9_176s3"]
 [ext_resource type="Script" path="res://scripts/finish.gd" id="9_g3psr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpddc"]
@@ -553,8 +553,7 @@ script = ExtResource("3_5gws6")
 position = Vector2(1, 1)
 position_smoothing_enabled = true
 
-[node name="Timer" parent="Player/Camera2D" instance=ExtResource("4_uh55o")]
-position = Vector2(-536, -285)
+[node name="Timer" parent="Player" instance=ExtResource("9_176s3")]
 
 [node name="Level1Manager" type="Node" parent="."]
 script = ExtResource("6_fbav8")
@@ -564,3 +563,4 @@ script = ExtResource("6_fbav8")
 [connection signal="ready" from="Window" to="Window" method="_on_ready"]
 [connection signal="body_entered" from="Window2" to="Window2" method="_on_body_entered"]
 [connection signal="ready" from="Window2" to="Window2" method="_on_ready"]
+[connection signal="ready" from="Player/Timer" to="Level1Manager" method="_on_timer_ready"]

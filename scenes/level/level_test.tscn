@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bwi78ea5qn2l2" path="res://scenes/object/sila/sila.tscn" id="8_24uan"]
 [ext_resource type="PackedScene" uid="uid://dfve844ognewj" path="res://scenes/object/finish/window.tscn" id="9_3nc5d"]
 [ext_resource type="Script" path="res://scripts/finish.gd" id="9_a7pp5"]
-[ext_resource type="Script" path="res://scripts/level_1_manager.gd" id="12_5g633"]
+[ext_resource type="Script" path="res://scripts/level_test_manager.gd" id="13_kt0pi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ax6o"]
 texture = ExtResource("3_rwhby")
@@ -855,16 +855,18 @@ script = ExtResource("7_1wt68")
 position = Vector2(1, 1)
 position_smoothing_enabled = true
 
-[node name="Timer" parent="Player/Camera2D" instance=ExtResource("5_3gx4j")]
-position = Vector2(-536, -285)
+[node name="Timer" parent="Player" instance=ExtResource("5_3gx4j")]
+position = Vector2(-535, -284)
 
-[node name="Level1Manager" type="Node" parent="."]
-script = ExtResource("12_5g633")
+[node name="LevelTestManager" type="Node" parent="."]
+script = ExtResource("13_kt0pi")
 
-[connection signal="ready" from="." to="Level1Manager" method="_on_level_test_ready"]
-[connection signal="ready" from="Sila" to="Level1Manager" method="_on_sila_ready"]
+[connection signal="ready" from="." to="LevelTestManager" method="_on_level_test_ready"]
+[connection signal="tree_entered" from="." to="LevelTestManager" method="_on_level_test_tree_entered"]
+[connection signal="ready" from="Sila" to="LevelTestManager" method="_on_sila_ready"]
 [connection signal="body_entered" from="Window" to="Window" method="_on_body_entered"]
 [connection signal="ready" from="Window" to="Window" method="_on_ready"]
 [connection signal="body_entered" from="Window2" to="Window2" method="_on_body_entered"]
 [connection signal="ready" from="Window2" to="Window2" method="_on_ready"]
-[connection signal="ready" from="Level1Manager" to="Sila" method="_on_node_ready"]
+[connection signal="ready" from="Player/Timer" to="LevelTestManager" method="_on_timer_ready"]
+[connection signal="ready" from="LevelTestManager" to="Sila" method="_on_node_ready"]
