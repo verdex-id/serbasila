@@ -18,8 +18,9 @@ func time_convert(time_in_sec):
 func _on_timer_timeout():
 	LevelManager.timer_seconds += 1
 	var time = time_convert(LevelManager.timer_seconds)
-	print(time)
 	$Label.text = time
 
 func timer_start():
 	$Timer.start(LevelManager.timer_seconds || 0)
+	var time = time_convert(LevelManager.timer_seconds)
+	$Label.text = time

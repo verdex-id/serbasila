@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvxu4u41ae7l0"]
+[gd_scene load_steps=17 format=3 uid="uid://dvxu4u41ae7l0"]
 
 [ext_resource type="Texture2D" uid="uid://b6i3h5w5d5lyb" path="res://assets/character/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_1512k"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_lkfjm"]
 [ext_resource type="Texture2D" uid="uid://bo5ogq8uflpey" path="res://assets/character/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="2_g1ulb"]
 [ext_resource type="Texture2D" uid="uid://cvwb3u2184pa7" path="res://assets/character/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="3_ux357"]
 [ext_resource type="Texture2D" uid="uid://6bxkl81tkug2" path="res://assets/character/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="4_2b6p4"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bj0k2st5j4c06" path="res://assets/character/Captain Clown Nose without Sword/02-Run/Run 04.png" id="9_hxd7m"]
 [ext_resource type="Texture2D" uid="uid://cyaecknheaqli" path="res://assets/character/Captain Clown Nose without Sword/02-Run/Run 05.png" id="10_cuk40"]
 [ext_resource type="Texture2D" uid="uid://4tub6yvq77dk" path="res://assets/character/Captain Clown Nose without Sword/02-Run/Run 06.png" id="11_p7mvn"]
+[ext_resource type="Theme" uid="uid://cqmyh4wu4p7m6" path="res://theme/font.tres" id="13_p8ncx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3t4cd"]
 animations = [{
@@ -61,8 +63,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_642na"]
 size = Vector2(48, 51)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sc86g"]
+size = Vector2(72, 84)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(16, -6.5)
+script = ExtResource("1_lkfjm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -75,3 +81,34 @@ autoplay = "idle"
 position = Vector2(0, 9.99998)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_642na")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_sc86g")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+
+[node name="Health" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -77.5
+offset_right = 13.0
+offset_bottom = -51.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("13_p8ncx")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "♥ 100"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

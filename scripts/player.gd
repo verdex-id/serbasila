@@ -6,8 +6,17 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -800.0
 var gravity = 2000
 
+var enemy_is_in_hitbox = false
+var enemy_attack_cooldown = false
+var health = 100
+var alive = true
+
 
 func _physics_process(delta):
+	player_movement(delta)
+	enemy_attack_check()
+	
+func player_movement(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -33,3 +42,39 @@ func _physics_process(delta):
 		player.animation = "walk"
 	else:
 		player.animation = "idle"
+
+
+func _on_hitbox_body_entered(body):
+	if (body.name == "Enemy"):
+		enemy_is_in_hitbox = true
+
+
+func _on_hitbox_body_exited(body):
+	if (body.name == "Enemy"):
+		enemy_is_in_hitbox = false
+		
+@onready var attack_cooldown = $AttackCooldown
+@onready var health_label = $Health
+		
+func enemy_attack_check():
+	if (enemy_is_in_hitbox and enemy_attack_cooldown == false):
+		if (health <= 0):
+			alive = false
+			get_tree().change_scene_to_file(get_tree().current_scene.scene_file_path)
+			return
+			
+		enemy_attack_cooldown = true
+		health -= 20
+		health_label.text = "♥ %d" % health
+		if (health > 60):
+			health_label.add_theme_color_override("font_color", "green")
+		elif (health > 40):
+			health_label.add_theme_color_override("font_color", "yellow")
+		else:
+			health_label.add_theme_color_override("font_color", "red")
+		
+		attack_cooldown.start()
+			
+
+func _on_attack_cooldown_timeout():
+	enemy_attack_cooldown = false
