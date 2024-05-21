@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://byc4vea7ecl6y"]
+
+[ext_resource type="Texture2D" uid="uid://de14hrfis763n" path="res://assets/object/enemy/chainsaw/2.png" id="1_hov5p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o3o8"]
+atlas = ExtResource("1_hov5p")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o0wi"]
+atlas = ExtResource("1_hov5p")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkcru"]
+atlas = ExtResource("1_hov5p")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjycs"]
+atlas = ExtResource("1_hov5p")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro7j5"]
+atlas = ExtResource("1_hov5p")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7gs0"]
+atlas = ExtResource("1_hov5p")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkwq1"]
+atlas = ExtResource("1_hov5p")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xav6d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o3o8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o0wi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkcru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjycs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro7j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7gs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkwq1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k5fld"]
+
+[node name="Chainsaw" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xav6d")
+autoplay = "default"
+frame_progress = 0.0865011
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k5fld")

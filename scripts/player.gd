@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -800.0
 var gravity = 2000
 
 var enemy_is_in_hitbox = false
+var trap_is_in_hitbox = false
 var enemy_attack_cooldown = false
 var health = 100
 var alive = true
@@ -15,6 +16,7 @@ var alive = true
 func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack_check()
+	trap_attack_check()
 	
 func player_movement(delta):
 	# Add the gravity.
@@ -45,16 +47,50 @@ func player_movement(delta):
 
 
 func _on_hitbox_body_entered(body):
-	if (body.name == "Enemy"):
+	if ("Enemy" in body.name):
 		enemy_is_in_hitbox = true
+		
+	if ("Trap" in body.name):
+		trap_is_in_hitbox = true
 
 
 func _on_hitbox_body_exited(body):
-	if (body.name == "Enemy"):
+	if ("Enemy" in body.name):
 		enemy_is_in_hitbox = false
+		
+	if ("Trap" in body.name):
+		trap_is_in_hitbox = false
+		
+func _on_hitbox_area_entered(area):
+	if ("Enemy" in area.name):
+		enemy_is_in_hitbox = true
+		
+	if ("Trap" in area.name):
+		trap_is_in_hitbox = true
+
+
+func _on_hitbox_area_exited(area):
+	if ("Enemy" in area.name):
+		enemy_is_in_hitbox = false
+		
+	if ("Trap" in area.name):
+		trap_is_in_hitbox = false
 		
 @onready var attack_cooldown = $AttackCooldown
 @onready var health_label = $Health
+
+func trap_attack_check():
+	if (trap_is_in_hitbox and enemy_attack_cooldown == false):
+		if (health <= 0):
+			alive = false
+			get_tree().change_scene_to_file(get_tree().current_scene.scene_file_path)
+			return
+			
+		enemy_attack_cooldown = true
+		health -= 8.4
+		update_health()
+		
+		attack_cooldown.start()
 		
 func enemy_attack_check():
 	if (enemy_is_in_hitbox and enemy_attack_cooldown == false):
@@ -64,17 +100,21 @@ func enemy_attack_check():
 			return
 			
 		enemy_attack_cooldown = true
-		health -= 20
-		health_label.text = "♥ %d" % health
-		if (health > 60):
-			health_label.add_theme_color_override("font_color", "green")
-		elif (health > 40):
-			health_label.add_theme_color_override("font_color", "yellow")
-		else:
-			health_label.add_theme_color_override("font_color", "red")
+		health -= 9.7
+		update_health()
 		
 		attack_cooldown.start()
 			
 
+func update_health():
+	health_label.text = "♥ %0.1f" % health
+	if (health > 60):
+		health_label.add_theme_color_override("font_color", "green")
+	elif (health > 40):
+		health_label.add_theme_color_override("font_color", "yellow")
+	else:
+		health_label.add_theme_color_override("font_color", "red")
+
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = false
+

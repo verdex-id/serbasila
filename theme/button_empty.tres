@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://1uffbjk3loe1"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://b1now38076gpp"]
 
-[ext_resource type="Texture2D" uid="uid://cs33mi7n1gh1e" path="res://assets/button/Spritesheet_UI_Flat.png" id="1_awq5l"]
+[ext_resource type="Texture2D" uid="uid://cs33mi7n1gh1e" path="res://assets/button/Spritesheet_UI_Flat.png" id="1_riigw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3uto"]
 content_margin_left = 4.0
@@ -19,6 +19,7 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
 draw_center = false
 border_width_left = 2
 border_width_top = 2
@@ -35,15 +36,16 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ernng"]
+texture = ExtResource("1_riigw")
 region_rect = Rect2(640, 288, 96, 32)
 modulate_color = Color(0.783523, 0.783523, 0.783523, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5mtl3"]
-texture = ExtResource("1_awq5l")
+texture = ExtResource("1_riigw")
 region_rect = Rect2(640, 288, 96, 32)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kom1m"]
-texture = ExtResource("1_awq5l")
+texture = ExtResource("1_riigw")
 region_rect = Rect2(640, 288, 96, 32)
 modulate_color = Color(0.74558, 0.74558, 0.74558, 1)
 

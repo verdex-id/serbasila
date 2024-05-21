@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://coo18lck1h1hk"]
+[gd_scene load_steps=15 format=3 uid="uid://coo18lck1h1hk"]
 
 [ext_resource type="Texture2D" uid="uid://ddgv8inhil50t" path="res://assets/background/BG Image.png" id="1_yv5sl"]
 [ext_resource type="Texture2D" uid="uid://c7jfj54qe5v07" path="res://assets/background/Additional Sky.png" id="2_b647a"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bdqlwhtv6q14t" path="res://scenes/object/tree/front_palm_tree.tscn" id="4_hk2ok"]
 [ext_resource type="PackedScene" uid="uid://b6uex5fw7naax" path="res://scenes/object/timer/timer.tscn" id="5_3gx4j"]
 [ext_resource type="PackedScene" uid="uid://dvxu4u41ae7l0" path="res://scenes/character/player.tscn" id="6_sp64p"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="7_1wt68"]
 [ext_resource type="PackedScene" uid="uid://bwi78ea5qn2l2" path="res://scenes/object/sila/sila.tscn" id="8_24uan"]
 [ext_resource type="PackedScene" uid="uid://dfve844ognewj" path="res://scenes/object/finish/window.tscn" id="9_3nc5d"]
 [ext_resource type="Script" path="res://scripts/finish.gd" id="9_a7pp5"]
@@ -847,19 +846,17 @@ script = ExtResource("9_a7pp5")
 position = Vector2(914, -6)
 script = ExtResource("9_a7pp5")
 
+[node name="LevelTestManager" type="Node" parent="."]
+script = ExtResource("13_kt0pi")
+
 [node name="Player" parent="." instance=ExtResource("6_sp64p")]
-position = Vector2(218, 429)
-script = ExtResource("7_1wt68")
+position = Vector2(154, 429)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, 1)
 position_smoothing_enabled = true
 
 [node name="Timer" parent="Player" instance=ExtResource("5_3gx4j")]
-position = Vector2(-535, -284)
-
-[node name="LevelTestManager" type="Node" parent="."]
-script = ExtResource("13_kt0pi")
 
 [connection signal="ready" from="." to="LevelTestManager" method="_on_level_test_ready"]
 [connection signal="tree_entered" from="." to="LevelTestManager" method="_on_level_test_tree_entered"]
@@ -868,5 +865,4 @@ script = ExtResource("13_kt0pi")
 [connection signal="ready" from="Window" to="Window" method="_on_ready"]
 [connection signal="body_entered" from="Window2" to="Window2" method="_on_body_entered"]
 [connection signal="ready" from="Window2" to="Window2" method="_on_ready"]
-[connection signal="ready" from="Player/Timer" to="LevelTestManager" method="_on_timer_ready"]
 [connection signal="ready" from="LevelTestManager" to="Sila" method="_on_node_ready"]

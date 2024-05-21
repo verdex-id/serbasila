@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxcny81hkm0md"]
+[gd_scene load_steps=10 format=3 uid="uid://cxcny81hkm0md"]
 
 [ext_resource type="Theme" uid="uid://cqmyh4wu4p7m6" path="res://theme/font.tres" id="1_ead13"]
-[ext_resource type="Theme" uid="uid://1uffbjk3loe1" path="res://theme/button_normal.tres" id="1_ogk33"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_v554k"]
-[ext_resource type="Texture2D" uid="uid://ddgv8inhil50t" path="res://assets/background/BG Image.png" id="3_pweod"]
-[ext_resource type="Theme" uid="uid://dkpb16webwh8w" path="res://theme/button_danger.tres" id="4_337f6"]
+[ext_resource type="Texture2D" uid="uid://cxnx7q6ljg4ua" path="res://assets/button/peringkat.png" id="4_bfqcp"]
+[ext_resource type="Texture2D" uid="uid://cckbfhamg1gbv" path="res://assets/button/tutorial.png" id="5_34jiw"]
+[ext_resource type="Texture2D" uid="uid://c3d1u2c03bryn" path="res://assets/button/main.png" id="5_cv7mw"]
+[ext_resource type="Texture2D" uid="uid://bebher7fr4djl" path="res://assets/button/exit.png" id="6_6e144"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="6_iwage"]
 [ext_resource type="PackedScene" uid="uid://dk0fqpagu3ath" path="res://scenes/object/other/music.tscn" id="7_4b1lu"]
+[ext_resource type="Texture2D" uid="uid://7vpwmxwq0xdy" path="res://assets/logo.png" id="8_b3yvf"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -18,19 +20,46 @@ grow_vertical = 2
 theme = ExtResource("1_ead13")
 script = ExtResource("2_v554k")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("3_pweod")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 596.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.309804, 0.533333, 1, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 382.0
+offset_right = 945.0
+offset_bottom = 594.0
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 54.0
+offset_right = 695.0
+offset_bottom = 138.0
 
 [node name="GridContainer" type="GridContainer" parent="."]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 0
-offset_left = 332.0
-offset_top = 397.0
-offset_right = 832.0
-offset_bottom = 479.0
+custom_minimum_size = Vector2(502.155, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.5
+offset_top = 91.0
+offset_right = 328.5
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 3
 
 [node name="Button" type="Button" parent="GridContainer"]
@@ -40,31 +69,90 @@ flat = true
 [node name="Play" type="Button" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_ogk33")
-text = "Main"
+size_flags_vertical = 3
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Play"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -25.5
+offset_right = 103.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_cv7mw")
 
 [node name="Button2" type="Button" parent="GridContainer"]
 layout_mode = 2
 flat = true
 
-[node name="Ranks" type="Button" parent="GridContainer"]
+[node name="Rank" type="Button" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_ogk33")
-text = "Peringkat"
+size_flags_vertical = 3
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Rank"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -25.5
+offset_right = 103.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_bfqcp")
 
 [node name="Tutorial" type="Button" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_ogk33")
-text = "Tutorial"
+size_flags_vertical = 3
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -25.5
+offset_right = 103.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_34jiw")
 
 [node name="Exit" type="Button" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
-theme = ExtResource("4_337f6")
-text = "Exit"
+size_flags_vertical = 3
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -25.5
+offset_right = 103.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_6e144")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -73,5 +161,23 @@ script = ExtResource("6_iwage")
 [node name="Music" parent="." instance=ExtResource("7_4b1lu")]
 unique_name_in_owner = true
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -156.0
+offset_right = 252.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_b3yvf")
+
 [connection signal="pressed" from="GridContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="GridContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="GridContainer/Rank" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="GridContainer/Tutorial" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="GridContainer/Exit" to="." method="_on_play_pressed"]

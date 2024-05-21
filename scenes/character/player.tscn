@@ -89,6 +89,7 @@ position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_sc86g")
 
 [node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="Health" type="Label" parent="."]
 texture_filter = 1
@@ -109,6 +110,9 @@ theme_override_colors/font_color = Color(0, 1, 0, 1)
 text = "♥ 100"
 horizontal_alignment = 1
 
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]
+[connection signal="area_shape_entered" from="Hitbox" to="." method="_on_hitbox_area_shape_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

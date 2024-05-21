@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://pag1b148hduc"]
+[gd_scene load_steps=12 format=3 uid="uid://pag1b148hduc"]
 
 [ext_resource type="Texture2D" uid="uid://cw88rwmjmqfms" path="res://assets/terrain/terrain2.png" id="1_abbpf"]
 [ext_resource type="Texture2D" uid="uid://bgvjb3gt1l755" path="res://assets/background/background_0.png" id="2_0n1dr"]
 [ext_resource type="PackedScene" uid="uid://dvxu4u41ae7l0" path="res://scenes/character/player.tscn" id="2_a205k"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="3_5gws6"]
 [ext_resource type="Theme" uid="uid://cqmyh4wu4p7m6" path="res://theme/font.tres" id="3_lvw30"]
 [ext_resource type="PackedScene" uid="uid://bwi78ea5qn2l2" path="res://scenes/object/sila/sila.tscn" id="5_qpuso"]
 [ext_resource type="Script" path="res://scripts/level_1_manager.gd" id="6_fbav8"]
@@ -545,9 +544,11 @@ script = ExtResource("9_g3psr")
 [node name="Sila" parent="." instance=ExtResource("5_qpuso")]
 position = Vector2(804, 28)
 
+[node name="Level1Manager" type="Node" parent="."]
+script = ExtResource("6_fbav8")
+
 [node name="Player" parent="." instance=ExtResource("2_a205k")]
-position = Vector2(104, 476)
-script = ExtResource("3_5gws6")
+position = Vector2(84, 454)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, 1)
@@ -555,12 +556,8 @@ position_smoothing_enabled = true
 
 [node name="Timer" parent="Player" instance=ExtResource("9_176s3")]
 
-[node name="Level1Manager" type="Node" parent="."]
-script = ExtResource("6_fbav8")
-
 [connection signal="ready" from="." to="Level1Manager" method="_on_level_one_ready"]
 [connection signal="body_entered" from="Window" to="Window" method="_on_body_entered"]
 [connection signal="ready" from="Window" to="Window" method="_on_ready"]
 [connection signal="body_entered" from="Window2" to="Window2" method="_on_body_entered"]
 [connection signal="ready" from="Window2" to="Window2" method="_on_ready"]
-[connection signal="ready" from="Player/Timer" to="Level1Manager" method="_on_timer_ready"]
