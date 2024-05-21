@@ -20,27 +20,25 @@ grow_vertical = 2
 theme = ExtResource("1_ead13")
 script = ExtResource("2_v554k")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasGroup"]
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-layout_mode = 0
+[node name="ColorRect2" type="ColorRect" parent="CanvasGroup"]
 offset_left = 596.0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.309804, 0.533333, 1, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="."]
-layout_mode = 0
+[node name="ColorRect3" type="ColorRect" parent="CanvasGroup"]
 offset_left = 40.0
 offset_top = 382.0
 offset_right = 945.0
 offset_bottom = 594.0
 
-[node name="ColorRect4" type="ColorRect" parent="."]
-layout_mode = 0
+[node name="ColorRect4" type="ColorRect" parent="CanvasGroup"]
 offset_left = 20.0
 offset_top = 54.0
 offset_right = 695.0
@@ -161,7 +159,7 @@ script = ExtResource("6_iwage")
 [node name="Music" parent="." instance=ExtResource("7_4b1lu")]
 unique_name_in_owner = true
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="Logo" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8

@@ -556,6 +556,15 @@ position_smoothing_enabled = true
 
 [node name="Timer" parent="Player" instance=ExtResource("9_176s3")]
 
+[node name="Label" type="Label" parent="."]
+offset_left = 33.0
+offset_top = 424.0
+offset_right = 149.0
+offset_bottom = 481.0
+theme = ExtResource("3_lvw30")
+theme_override_font_sizes/font_size = 36
+text = "Level 1"
+
 [connection signal="ready" from="." to="Level1Manager" method="_on_level_one_ready"]
 [connection signal="body_entered" from="Window" to="Window" method="_on_body_entered"]
 [connection signal="ready" from="Window" to="Window" method="_on_ready"]

@@ -513,6 +513,15 @@ texture = ExtResource("1_joj3x")
 position = Vector2(324, 196)
 scale = Vector2(0.8, 0.8)
 
+[node name="Label" type="Label" parent="Accent"]
+offset_left = 33.0
+offset_top = 424.0
+offset_right = 149.0
+offset_bottom = 481.0
+theme = ExtResource("6_bvn1e")
+theme_override_font_sizes/font_size = 36
+text = "Level 4"
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Node2D"]

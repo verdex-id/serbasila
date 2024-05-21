@@ -9,7 +9,11 @@ func _on_body_entered(body):
 		if (is_correct):
 			label.text = "Benar!"
 			Music.stop()
-			get_tree().change_scene_to_file("res://scenes/level/level_test.tscn")
+			if (get_tree().current_scene.name == "LevelOne"):
+				get_tree().change_scene_to_file("res://scenes/level/level_two.tscn")
+			elif (get_tree().current_scene.name == "LevelTwo"):
+				get_tree().change_scene_to_file("res://scenes/level/level_four.tscn")
+				
 		else:
 			label.text = "Salah!"
 

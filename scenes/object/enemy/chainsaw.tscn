@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://byc4vea7ecl6y"]
+[gd_scene load_steps=12 format=3 uid="uid://byc4vea7ecl6y"]
 
 [ext_resource type="Texture2D" uid="uid://de14hrfis763n" path="res://assets/object/enemy/chainsaw/2.png" id="1_hov5p"]
+[ext_resource type="Script" path="res://scripts/chainsaw.gd" id="1_oahl1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1o3o8"]
 atlas = ExtResource("1_hov5p")
@@ -62,6 +63,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_k5fld"]
 
 [node name="Chainsaw" type="Area2D"]
+script = ExtResource("1_oahl1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -72,3 +74,6 @@ frame_progress = 0.0865011
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_k5fld")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

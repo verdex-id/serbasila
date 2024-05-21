@@ -2033,6 +2033,15 @@ position_smoothing_enabled = true
 [node name="Enemy" parent="." instance=ExtResource("15_0naq7")]
 position = Vector2(915, 204)
 
+[node name="Label" type="Label" parent="."]
+offset_left = 33.0
+offset_top = 424.0
+offset_right = 149.0
+offset_bottom = 481.0
+theme = ExtResource("2_7jchv")
+theme_override_font_sizes/font_size = 36
+text = "Level 2"
+
 [connection signal="ready" from="." to="Level2Manager" method="_on_level_two_ready"]
 [connection signal="body_entered" from="Finish/Window" to="Finish/Window" method="_on_body_entered"]
 [connection signal="ready" from="Finish/Window" to="Finish/Window" method="_on_ready"]
