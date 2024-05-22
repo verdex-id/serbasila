@@ -11,10 +11,12 @@ func _on_level_one_ready():
 	finish_points.shuffle()
 	
 	var finish_correct = finish_points[0]
+	var sila_correct = LevelManager.get_sila()
 	finish_points = finish_points.slice(1)
-	finish_correct.set_sila(LevelManager.get_sila(), true)
+	finish_correct.set_sila(sila_correct, true)
 	
 	finish_points = finish_points.filter(func(point): return point != finish_correct)
+	var sila_list_incorrect = LevelManager.sila_list.filter(func(sila): return sila != sila_correct)
 	
 	for point in finish_points:
-		point.set_sila(LevelManager.sila_list.pick_random(), false)
+		point.set_sila(sila_list_incorrect.pick_random(), false)

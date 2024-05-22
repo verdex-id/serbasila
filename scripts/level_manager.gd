@@ -30,10 +30,14 @@ var sila_list = [
 
 var current_sila = null
 
+func set_random_sila():
+	sila_list.shuffle()
+	current_sila = sila_list.pick_random()
+	
 func get_sila():
 	if (current_sila != null):
 		return current_sila
-	current_sila = sila_list.pick_random()
+	set_random_sila()
 	return current_sila
 	
 var timer_seconds = 0
