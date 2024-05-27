@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf3dil0dstoxt"]
+
+[ext_resource type="Script" path="res://scripts/barrier.gd" id="1_3s3kx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37jr5"]
+size = Vector2(4605, 39)
+
+[node name="Barrier" type="Area2D"]
+script = ExtResource("1_3s3kx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2292.5, 9.5)
+shape = SubResource("RectangleShape2D_37jr5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

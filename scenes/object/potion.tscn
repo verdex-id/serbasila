@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://dv87ei7ud2267"]
+
+[ext_resource type="Texture2D" uid="uid://btofm45fay0ns" path="res://assets/object/potion/01.png" id="1_4hlon"]
+[ext_resource type="Script" path="res://scripts/potion.gd" id="1_hekv0"]
+[ext_resource type="Texture2D" uid="uid://hy071gq73ma7" path="res://assets/object/potion/02.png" id="2_kl6ge"]
+[ext_resource type="Texture2D" uid="uid://clntxr0sg88d" path="res://assets/object/potion/03.png" id="3_p1f35"]
+[ext_resource type="Texture2D" uid="uid://c4jdbbj2odky4" path="res://assets/object/potion/04.png" id="4_6qu57"]
+[ext_resource type="Texture2D" uid="uid://b4gjfamec7st4" path="res://assets/object/potion/05.png" id="5_gmscq"]
+[ext_resource type="Texture2D" uid="uid://b7g8pwodin1rp" path="res://assets/object/potion/06.png" id="6_ckhsm"]
+[ext_resource type="Texture2D" uid="uid://bgrlh2xxyvv3x" path="res://assets/object/potion/07.png" id="7_dl8qh"]
+[ext_resource type="Theme" uid="uid://cqmyh4wu4p7m6" path="res://theme/font.tres" id="8_el1jo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_di1pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4hlon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kl6ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_p1f35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6qu57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gmscq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ckhsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dl8qh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocema"]
+size = Vector2(26, 34)
+
+[node name="Potion" type="Area2D"]
+script = ExtResource("1_hekv0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_di1pv")
+autoplay = "default"
+frame_progress = 0.41631
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ocema")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.5
+offset_top = -43.0
+offset_right = 23.5
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("8_el1jo")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "♥ +100"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
