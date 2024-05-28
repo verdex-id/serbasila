@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bgx5agpu4rcwb"]
+[gd_scene load_steps=19 format=3 uid="uid://bgx5agpu4rcwb"]
 
 [ext_resource type="Texture2D" uid="uid://bcwk83cieq7va" path="res://assets/terrain/terrain3.png" id="1_0baji"]
 [ext_resource type="Texture2D" uid="uid://bp0wufsrq7gh4" path="res://assets/background/background_layer_1.png" id="1_h28tm"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dkpecqajuqfj3" path="res://scenes/object/enemy/seashell.tscn" id="12_l3sqp"]
 [ext_resource type="PackedScene" uid="uid://bwi78ea5qn2l2" path="res://scenes/object/sila/sila.tscn" id="14_ul4ot"]
 [ext_resource type="PackedScene" uid="uid://dlallsyi55i5f" path="res://scenes/character/enemy.tscn" id="15_0naq7"]
+[ext_resource type="PackedScene" uid="uid://bf3dil0dstoxt" path="res://scenes/object/barrier.tscn" id="15_yfnvg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofs88"]
 texture = ExtResource("1_0baji")
@@ -2041,6 +2042,9 @@ offset_bottom = 481.0
 theme = ExtResource("2_7jchv")
 theme_override_font_sizes/font_size = 36
 text = "Level 2"
+
+[node name="Barrier" parent="." instance=ExtResource("15_yfnvg")]
+position = Vector2(-558, 854)
 
 [connection signal="ready" from="." to="Level2Manager" method="_on_level_two_ready"]
 [connection signal="body_entered" from="Finish/Window" to="Finish/Window" method="_on_body_entered"]

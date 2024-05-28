@@ -3,3 +3,7 @@ extends Node
 
 func _ready():
 	music.kebun_binatang()
+
+
+func _on_text_edit_text_changed():
+	Player.username = $"../TextEdit".text

@@ -7,6 +7,8 @@ func _on_level_one_ready():
 	
 	timer.timer_start()
 	
+	$"../Label2".text = "Hi, %s" % [Player.username]
+	
 	var finish_points = get_tree().get_nodes_in_group("finish")
 	finish_points.shuffle()
 	

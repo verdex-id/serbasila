@@ -44,7 +44,29 @@ offset_top = 54.0
 offset_right = 695.0
 offset_bottom = 138.0
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="TextEdit" type="TextEdit" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.5
+offset_top = -23.5
+offset_right = 136.5
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_colors/background_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.309804, 0.533333, 1, 1)
+theme_override_colors/font_placeholder_color = Color(0.309804, 0.533333, 1, 0.713726)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+placeholder_text = "Username"
+
+[node name="ButtonContainer" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(502.155, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -60,17 +82,17 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 3
 
-[node name="Button" type="Button" parent="GridContainer"]
+[node name="Button" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 flat = true
 
-[node name="Play" type="Button" parent="GridContainer"]
+[node name="Play" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 flat = true
 
-[node name="TextureRect" type="TextureRect" parent="GridContainer/Play"]
+[node name="TextureRect" type="TextureRect" parent="ButtonContainer/Play"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -85,17 +107,17 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_cv7mw")
 
-[node name="Button2" type="Button" parent="GridContainer"]
+[node name="Button2" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 flat = true
 
-[node name="Rank" type="Button" parent="GridContainer"]
+[node name="Rank" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 flat = true
 
-[node name="TextureRect" type="TextureRect" parent="GridContainer/Rank"]
+[node name="TextureRect" type="TextureRect" parent="ButtonContainer/Rank"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -110,13 +132,13 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_bfqcp")
 
-[node name="Tutorial" type="Button" parent="GridContainer"]
+[node name="Tutorial" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 flat = true
 
-[node name="TextureRect" type="TextureRect" parent="GridContainer/Tutorial"]
+[node name="TextureRect" type="TextureRect" parent="ButtonContainer/Tutorial"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,13 +153,13 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_34jiw")
 
-[node name="Exit" type="Button" parent="GridContainer"]
+[node name="Exit" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 flat = true
 
-[node name="TextureRect" type="TextureRect" parent="GridContainer/Exit"]
+[node name="TextureRect" type="TextureRect" parent="ButtonContainer/Exit"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -175,7 +197,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_b3yvf")
 
-[connection signal="pressed" from="GridContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="GridContainer/Rank" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="GridContainer/Tutorial" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="GridContainer/Exit" to="." method="_on_play_pressed"]
+[connection signal="text_changed" from="TextEdit" to="GameManager" method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="ButtonContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ButtonContainer/Rank" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ButtonContainer/Tutorial" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ButtonContainer/Exit" to="." method="_on_play_pressed"]

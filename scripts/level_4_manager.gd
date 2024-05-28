@@ -4,6 +4,7 @@ extends Node
 
 
 func _on_level_four_ready():
+	Music.cahaya_panjang(100)
 	timer.timer_start()
 
 

@@ -5,4 +5,5 @@ extends Node
 
 
 func _on_level_five_ready():
+	Music.cara_ceroboh(1.5)
 	timer.timer_start()

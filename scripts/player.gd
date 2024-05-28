@@ -12,6 +12,8 @@ var enemy_attack_cooldown = false
 var health = 100
 var alive = true
 
+var username = "Player"
+
 
 func _physics_process(delta):
 	player_movement(delta)

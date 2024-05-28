@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pag1b148hduc"]
+[gd_scene load_steps=13 format=3 uid="uid://pag1b148hduc"]
 
 [ext_resource type="Texture2D" uid="uid://cw88rwmjmqfms" path="res://assets/terrain/terrain2.png" id="1_abbpf"]
 [ext_resource type="Texture2D" uid="uid://bgvjb3gt1l755" path="res://assets/background/background_0.png" id="2_0n1dr"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dfve844ognewj" path="res://scenes/object/finish/window.tscn" id="8_ot51x"]
 [ext_resource type="PackedScene" uid="uid://b6uex5fw7naax" path="res://scenes/object/timer/timer.tscn" id="9_176s3"]
 [ext_resource type="Script" path="res://scripts/finish.gd" id="9_g3psr"]
+[ext_resource type="PackedScene" uid="uid://bf3dil0dstoxt" path="res://scenes/object/barrier.tscn" id="10_deko0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpddc"]
 texture = ExtResource("1_abbpf")
@@ -564,6 +565,17 @@ offset_bottom = 481.0
 theme = ExtResource("3_lvw30")
 theme_override_font_sizes/font_size = 36
 text = "Level 1"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 253.0
+offset_top = 397.0
+offset_right = 369.0
+offset_bottom = 454.0
+theme = ExtResource("3_lvw30")
+theme_override_font_sizes/font_size = 24
+
+[node name="Barrier" parent="." instance=ExtResource("10_deko0")]
+position = Vector2(-696, 895)
 
 [connection signal="ready" from="." to="Level1Manager" method="_on_level_one_ready"]
 [connection signal="body_entered" from="Window" to="Window" method="_on_body_entered"]

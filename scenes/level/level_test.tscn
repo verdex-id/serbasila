@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://coo18lck1h1hk"]
+[gd_scene load_steps=16 format=3 uid="uid://coo18lck1h1hk"]
 
 [ext_resource type="Texture2D" uid="uid://ddgv8inhil50t" path="res://assets/background/BG Image.png" id="1_yv5sl"]
 [ext_resource type="Texture2D" uid="uid://c7jfj54qe5v07" path="res://assets/background/Additional Sky.png" id="2_b647a"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dfve844ognewj" path="res://scenes/object/finish/window.tscn" id="9_3nc5d"]
 [ext_resource type="Script" path="res://scripts/finish.gd" id="9_a7pp5"]
 [ext_resource type="Script" path="res://scripts/level_test_manager.gd" id="13_kt0pi"]
+[ext_resource type="PackedScene" uid="uid://bf3dil0dstoxt" path="res://scenes/object/barrier.tscn" id="13_v4qb5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ax6o"]
 texture = ExtResource("3_rwhby")
@@ -857,6 +858,9 @@ position = Vector2(1, 1)
 position_smoothing_enabled = true
 
 [node name="Timer" parent="Player" instance=ExtResource("5_3gx4j")]
+
+[node name="Barrier" parent="." instance=ExtResource("13_v4qb5")]
+position = Vector2(-700, 1296)
 
 [connection signal="ready" from="." to="LevelTestManager" method="_on_level_test_ready"]
 [connection signal="tree_entered" from="." to="LevelTestManager" method="_on_level_test_tree_entered"]
