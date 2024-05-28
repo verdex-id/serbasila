@@ -6,4 +6,4 @@ func _ready():
 
 
 func _on_text_edit_text_changed():
-	Player.username = $"../TextEdit".text
+	LevelManager.player_username = $"../TextEdit".text

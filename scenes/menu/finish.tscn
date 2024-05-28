@@ -1,0 +1,121 @@
+[gd_scene load_steps=5 format=3 uid="uid://rnr30iq7s4wk"]
+
+[ext_resource type="Theme" uid="uid://cqmyh4wu4p7m6" path="res://theme/font.tres" id="1_gnuyy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0ad3"]
+bg_color = Color(0.309804, 0.533333, 1, 1)
+expand_margin_left = 16.0
+expand_margin_top = 8.0
+expand_margin_right = 16.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eftu0"]
+bg_color = Color(0.309804, 0.533333, 1, 0.819608)
+expand_margin_left = 16.0
+expand_margin_top = 8.0
+expand_margin_right = 16.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sdrv"]
+bg_color = Color(0.309804, 0.305882, 1, 1)
+expand_margin_left = 16.0
+expand_margin_top = 8.0
+expand_margin_right = 16.0
+expand_margin_bottom = 8.0
+
+[node name="Finish" type="Node"]
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasGroup"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasGroup"]
+offset_left = 596.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.309804, 0.533333, 1, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasGroup"]
+offset_left = 40.0
+offset_top = 382.0
+offset_right = 945.0
+offset_bottom = 594.0
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasGroup"]
+offset_left = 20.0
+offset_top = 54.0
+offset_right = 695.0
+offset_bottom = 138.0
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -185.0
+offset_right = 146.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gnuyy")
+theme_override_colors/font_color = Color(0, 0, 0, 0.537255)
+theme_override_font_sizes/font_size = 96
+text = "Finish!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -77.0
+offset_right = 271.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gnuyy")
+theme_override_colors/font_color = Color(0, 0, 0, 0.537255)
+theme_override_font_sizes/font_size = 24
+text = "Selamat kamu telah menamatkan game serbasila!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = 114.0
+offset_right = 44.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_q0ad3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eftu0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7sdrv")
+text = "Main Menu"
+
+[node name="Space" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+flat = true
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_q0ad3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eftu0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7sdrv")
+text = "Lihat Peringkat"

@@ -29,6 +29,7 @@ var sila_list = [
 ]
 
 var current_sila = null
+var player_username = "Player"
 
 func set_random_sila():
 	sila_list.shuffle()
