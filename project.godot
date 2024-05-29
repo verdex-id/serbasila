@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 Music="*res://scenes/object/other/music.tscn"
 LevelManager="*res://scenes/level/level_manager.tscn"
 GlobalTimer="*res://scenes/object/timer/timer.tscn"
-Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [display]
 
@@ -33,8 +32,9 @@ project/assembly_name="Serbasila"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-firebase/plugin.cfg", "res://addons/http-sse-client/plugin.cfg")
+enabled=PackedStringArray()
 
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

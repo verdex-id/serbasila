@@ -7,18 +7,19 @@ var player
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 func _physics_process(delta):
-	if (player_is_in_area):
-		position += (player.position - position) / speed
-		
-		if (player.position.x - position.x) < 0:
-			animated_sprite_2d.flip_h = true
+	if (player):
+		if (player_is_in_area):
+			position += (player.position - position) / speed
+			
+			if (player.position.x - position.x) < 0:
+				animated_sprite_2d.flip_h = true
+			else:
+				animated_sprite_2d.flip_h = false
 		else:
-			animated_sprite_2d.flip_h = false
-	else:
-		animated_sprite_2d.play("default")
-	
-	var isLeft = velocity.x < 0
-	animated_sprite_2d.flip_h = isLeft
+			animated_sprite_2d.play("default")
+		
+		var isLeft = velocity.x < 0
+		animated_sprite_2d.flip_h = isLeft
 
 
 

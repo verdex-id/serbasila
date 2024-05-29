@@ -619,15 +619,6 @@ position = Vector2(667, 642)
 [node name="Trap4" parent="Traps" instance=ExtResource("7_33etr")]
 position = Vector2(730, 640)
 
-[node name="Player" parent="." instance=ExtResource("3_cbn7s")]
-position = Vector2(88, 521.5)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(1, 1)
-position_smoothing_enabled = true
-
-[node name="Timer" parent="Player" instance=ExtResource("4_vawgl")]
-
 [node name="Potion" parent="." instance=ExtResource("11_0gbjw")]
 position = Vector2(548, -32)
 
@@ -685,6 +676,15 @@ position = Vector2(889, -78)
 
 [node name="Enemy" parent="." instance=ExtResource("13_52m3a")]
 position = Vector2(932, 541)
+
+[node name="Player" parent="." instance=ExtResource("3_cbn7s")]
+position = Vector2(88, 521.5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(1, 1)
+position_smoothing_enabled = true
+
+[node name="Timer" parent="Player" instance=ExtResource("4_vawgl")]
 
 [node name="Barrier" parent="." instance=ExtResource("14_c3vq0")]
 position = Vector2(-883, 1006)

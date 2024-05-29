@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://rnr30iq7s4wk"]
+[gd_scene load_steps=6 format=3 uid="uid://rnr30iq7s4wk"]
 
+[ext_resource type="Script" path="res://scripts/finish_menu.gd" id="1_1ausx"]
 [ext_resource type="Theme" uid="uid://cqmyh4wu4p7m6" path="res://theme/font.tres" id="1_gnuyy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0ad3"]
@@ -24,6 +25,7 @@ expand_margin_right = 16.0
 expand_margin_bottom = 8.0
 
 [node name="Finish" type="Node"]
+script = ExtResource("1_1ausx")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
@@ -99,7 +101,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_q0ad3")
@@ -112,10 +114,29 @@ custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 flat = true
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
+[node name="RankButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_q0ad3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_eftu0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7sdrv")
 text = "Lihat Peringkat"
+
+[node name="TimeScore" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 20.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gnuyy")
+theme_override_colors/font_color = Color(0, 0, 0, 0.862745)
+horizontal_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

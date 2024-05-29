@@ -21,9 +21,10 @@ func _on_answer_1_wrong_body_entered(body):
 
 func _on_answer_2_correct_body_entered(body):
 	if (body.name == "Player"):
-		$"../Answer1/Answer1Correct/Label".text = "Benar! Lanjutkan"
+		$"../Answer2/Answer2Correct/Label".text = "Benar! Lanjutkan"
+		get_tree().change_scene_to_file("res://scenes/menu/finish.tscn")
 
 
 func _on_answer_2_wrong_body_entered(body):
 	if (body.name == "Player"):
-		$"../Answer1/Answer1Wrong/Label".text = "Salah!"
+		$"../Answer2/Answer2Wrong/Label".text = "Salah!"
