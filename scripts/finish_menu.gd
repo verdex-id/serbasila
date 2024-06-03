@@ -17,9 +17,15 @@ func time_convert(time_in_sec):
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	$TimeScore.text = "Waktu yang ditempuh: %s" % [time_convert(LevelManager.timer_seconds)]
 	$Label2.text = "Selamat %s kamu telah menamatkan game Serbasila!" % [LevelManager.player_username]
+	$TimeScore.text = "Waktu yang ditempuh: %s (Updating Ranking...)" % [time_convert(LevelManager.timer_seconds)]
+	await LevelManager.save_leaderboard()
+	$TimeScore.text = "Waktu yang ditempuh: %s" % [time_convert(LevelManager.timer_seconds)]
 
 
 func _on_main_menu_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/menu/main_menu.tscn")
+
+
+func _on_rank_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/menu/rank.tscn")

@@ -42,3 +42,77 @@ func get_sila():
 	return current_sila
 	
 var timer_seconds = 0
+
+var http = HTTPClient.new()
+# https://serbasila-api.vercel.app/leaderboard
+var base_url = "https://serbasila-api.vercel.app"
+var port = -1
+var api_url = "https://serbasila-api.vercel.app/leaderboard"
+
+func get_leaderboard():
+	var err
+	
+	err = http.connect_to_host(base_url, port) # Connect to host/port.
+	assert(err == OK) # Make sure connection is OK.
+
+	# Wait until resolved and connected.
+	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
+		http.poll()
+		await get_tree().process_frame
+	
+	assert(http.get_status() == HTTPClient.STATUS_CONNECTED)
+	
+	err = http.request(HTTPClient.METHOD_GET, api_url, [])
+	assert(err == OK) # Make sure all is OK.
+
+	while http.get_status() == HTTPClient.STATUS_REQUESTING:
+		# Keep polling for as long as the request is being processed.
+		http.poll()
+		await get_tree().process_frame
+
+	assert(http.get_status() == HTTPClient.STATUS_BODY or http.get_status() == HTTPClient.STATUS_CONNECTED) # Make sure request finished well.
+
+	if (http.has_response()):
+		var rb = PackedByteArray() # Array that will hold the data.
+		while http.get_status() == HTTPClient.STATUS_BODY:
+			http.poll()
+			var chunk = http.read_response_body_chunk()
+			if chunk.size() == 0:
+				await get_tree().process_frame
+			else:
+				rb = rb + chunk
+				
+		var text = rb.get_string_from_ascii()
+		var data = JSON.parse_string(text)
+		return data
+		
+func save_leaderboard():
+	var data = JSON.stringify({
+		"username": player_username,
+		"timer_seconds": timer_seconds
+	})
+	
+	print(data)
+	
+	var err
+	
+	err = http.connect_to_host(base_url, port) # Connect to host/port.
+	assert(err == OK) # Make sure connection is OK.
+
+	# Wait until resolved and connected.
+	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
+		http.poll()
+		await get_tree().process_frame
+	
+	assert(http.get_status() == HTTPClient.STATUS_CONNECTED)
+	
+	err = http.request(HTTPClient.METHOD_POST, api_url, ["Content-Type: application/json"], data)
+	
+	assert(err == OK) # Make sure all is OK.
+	print("OK")
+	while http.get_status() == HTTPClient.STATUS_REQUESTING:
+		# Keep polling for as long as the request is being processed.
+		http.poll()
+		await get_tree().process_frame
+
+	assert(http.get_status() == HTTPClient.STATUS_BODY or http.get_status() == HTTPClient.STATUS_CONNECTED) # Make sure request finished well.

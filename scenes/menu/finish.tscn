@@ -140,3 +140,4 @@ theme_override_colors/font_color = Color(0, 0, 0, 0.862745)
 horizontal_alignment = 1
 
 [connection signal="pressed" from="HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/RankButton" to="." method="_on_rank_button_pressed"]
